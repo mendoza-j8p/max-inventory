@@ -2,8 +2,8 @@ package repository
 
 import (
 	"context"
-	"database/sql"
 	"max-inventory/internal/entity"
+	"github.com/jmoiron/sqlx"
 )
 
 type Repository interface {
@@ -12,10 +12,10 @@ type Repository interface {
 }
 
 type repo struct {
-	db *sql.DB
+	db *sqlx.DB
 }
 
-func New(db *sql.DB) Repository {
+func New(db *sqlx.DB) Repository {
 	return &repo{
 		db: db,
 	}
