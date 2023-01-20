@@ -1,5 +1,5 @@
-create database invetory;
-use invetory;
+create database max_invetory;
+use max_invetory;
 
 create table USERS(
     id int not null auto_increment,
