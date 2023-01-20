@@ -2,8 +2,8 @@ package main
 
 import (
 	"context"
-	"max-inventory/internal/database"
-	"max-inventory/internal/settings"
+	"max-inventory/database"
+	"max-inventory/settings"
 
 	"go.uber.org/fx"
 )

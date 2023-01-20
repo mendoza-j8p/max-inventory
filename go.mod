@@ -7,6 +7,8 @@ require (
 	gopkg.in/yaml.v3 v3.0.1
 )
 
+require github.com/go-sql-driver/mysql v1.7.0 // indirect
+
 require (
 	github.com/jmoiron/sqlx v1.3.5
 	go.uber.org/atomic v1.7.0 // indirect
