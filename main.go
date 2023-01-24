@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"max-inventory/database"
+	"max-inventory/internal/repository"
 	"max-inventory/settings"
 	"github.com/jmoiron/sqlx"
 	"go.uber.org/fx"
@@ -14,6 +15,7 @@ func main() {
 			context.Background,
 			settings.New,
 			database.New,
+			repository.New,
 		),
 
 		fx.Invoke(
