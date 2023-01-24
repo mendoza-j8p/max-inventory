@@ -13,7 +13,7 @@ type Service interface {
 }
 
 type serv struct {
-	repo repository.Respository
+	repo repository.Repository
 }
 
 func New(repo repository.Repository) Service {
