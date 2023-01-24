@@ -7,11 +7,11 @@ import (
 )
 
 var (
-	ErrUserAlreadyExists = errors.New("user already exists")
+	ErrUserAlreadyExists  = errors.New("user already exists")
 	ErrInvalidCredentials = errors.New("invalid password")
 )
 
-func (s serv) RegisterUser(ctsx context.Context, email, name, password string) error {
+func (s *serv) RegisterUser(ctx context.Context, email, name, password string) error {
 
 	U, _ := s.repo.GetUserByEmail(ctx, email)
 	if U != nil {
@@ -24,16 +24,16 @@ func (s serv) RegisterUser(ctsx context.Context, email, name, password string) e
 func (s *serv) LoginUser(ctx context.Context, email, password string) (*models.User, error) {
 	U, err := s.repo.GetUserByEmail(ctx, email)
 	if err != nil {
+		return nil, err
+	}
+
+	if U.Password != password {
 		return nil, ErrInvalidCredentials
 	}
 
-	if U.Password = password {
-		retrun nil, 
-	}
-
-	retrun &models.User{
-		Id:		u.ID,
-		Email:	u.Email
-		Name: 	u.Name
+	return &models.User{
+		ID:    U.ID,
+		Email: U.Email,
+		Name:  U.Name,
 	}, nil
 }
